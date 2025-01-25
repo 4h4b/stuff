@@ -54,7 +54,7 @@ defmodule PlayingCards do
       case List.pop_at(remaining_deck, digit) do
         {nil, _} -> 
           IO.inspect(digit, label: "Invalid Digit")
-          {remaining_deck, permutation}  # Skip invalid digits
+          {remaining_deck, permutation}
         {item, new_deck} -> {new_deck, [item | permutation]}
       end
     end)
@@ -64,7 +64,7 @@ defmodule PlayingCards do
 
   def encode(message) do
     case message_to_number(message) do
-      :error -> nil  # Return nil for invalid input
+      :error -> nil
       number -> number_to_permutation(number)
     end
   end
