@@ -81,14 +81,14 @@ defmodule PlayingCards do
     number_to_message(div(number, 27)) <> char
   end
 
-  defp permutation_to_number(permuted_deck) do
+  def permutation_to_number(permuted_deck) do
     standard_deck = generate_deck()
     permutation_to_number(permuted_deck, standard_deck, 0, length(standard_deck) - 1)
   end
 
-  defp permutation_to_number([], _deck, number, _), do: number
+  def permutation_to_number([], _deck, number, _), do: number
 
-  defp permutation_to_number([card | rest], deck, number, n) do
+  def permutation_to_number([card | rest], deck, number, n) do
     index = Enum.find_index(deck, &(&1 == card))
     factorial = factorial(n)
     new_number = number + index * factorial
